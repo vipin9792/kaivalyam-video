@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Our Services - Kaivalyam Foundation</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Kaivalyam Services, Training Programs, Capacity Building" name="keywords">
+    <meta content="Comprehensive services for community development and human performance improvement" name="description">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-orange: #ffab27;
+            --primary-blue: #007bff;
+            --dark-bg: #212529;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .topbar {
+            /* background: #ffab27; */
+        }
+
+        .topbar a:hover {
+            color: var(--primary-orange) !important;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .page-header {
+            position: relative;
+            background: linear-gradient(135deg, #212529 0%, #343a40 50%, #212529 100%);
+            padding: 140px 0 80px;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 171, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 171, 39, 0.15) 0%, transparent 50%);
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(30deg, transparent 48%, rgba(255, 171, 39, 0.08) 50%, transparent 52%),
+                linear-gradient(-30deg, transparent 48%, rgba(255, 171, 39, 0.08) 50%, transparent 52%);
+            background-size: 60px 60px;
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .breadcrumb {
+            position: relative;
+            z-index: 2;
+        }
+        .service-detail-card {
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            z-index: 1;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(255, 171, 39, 0.3);
+            border-color: rgba(255, 171, 39, 0.3);
+        }
+
+        .service-detail-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon-box {
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, rgba(255, 171, 39, 0.1), rgba(255, 171, 39, 0.05));
+            transition: all 0.4s;
+        }
+
+        .service-detail-card:hover .service-icon-box {
+            transform: rotateY(360deg);
+            background: linear-gradient(135deg, rgba(255, 171, 39, 0.2), rgba(255, 171, 39, 0.1));
+        }
+
+        .service-detail-card .btn {
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detail-card .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .service-detail-card .btn:hover::before {
+            width: 300px; height: 300px;
+        }
+
+        .service-detail-card ul li {
+            transition: all 0.3s;
+            padding-left: 5px;
+        }
+
+        .service-detail-card:hover ul li {
+            padding-left: 10px;
+        }
+        .process-step {
+            position: relative;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 171, 39, 0.2);
+            border-color: rgba(255, 171, 39, 0.3);
+        }
+
+        .process-number {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #ff9500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(255, 171, 39, 0.4);
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .process-number {
+            transform: translateX(-50%) scale(1.1) rotate(360deg);
+        }
+
+        .process-step i { transition: all 0.3s; }
+        .process-step:hover i {
+            transform: scale(1.1);
+            color: var(--primary-orange) !important;
+        }
+        .wwd-card {
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 35px 30px;
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wwd-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .wwd-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(255, 171, 39, 0.2);
+            border-color: rgba(255, 171, 39, 0.35);
+            background: white;
+        }
+
+        .wwd-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .wwd-icon-box {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, rgba(255, 171, 39, 0.15), rgba(255, 171, 39, 0.07));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.4s;
+        }
+
+        .wwd-card:hover .wwd-icon-box {
+            background: linear-gradient(135deg, var(--primary-orange), #ff9500);
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 171, 39, 0.35);
+        }
+
+        .wwd-card:hover .wwd-icon-box i {
+            color: white !important;
+        }
+
+        .wwd-card ul li {
+            transition: padding-left 0.3s;
+        }
+
+        .wwd-card:hover ul li {
+            padding-left: 5px;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #ff9500 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%; left: -5%;
+            width: 400px; height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section .btn-light {
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-section .btn-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .accordion-item {
+            border: none !important;
+            margin-bottom: 15px;
+            border-radius: 15px !important;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 8px 25px rgba(255, 171, 39, 0.2);
+        }
+
+        .accordion-button {
+            background: white;
+            font-weight: 600;
+            padding: 20px 25px;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, rgba(255, 171, 39, 0.1), rgba(255, 171, 39, 0.05));
+            color: var(--primary-orange);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus { box-shadow: none; border: none; }
+
+        .accordion-button::after {
+            background-image: none;
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary-orange);
+            font-size: 1.2rem;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            content: '\f106';
+            transform: none;
+        }
+
+        .accordion-body {
+            padding: 25px;
+            background: white;
+            color: #666;
+            line-height: 1.8;
+        }
+        .section-title-enhanced {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .section-title-enhanced::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px; height: 4px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            border-radius: 2px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            box-shadow: 0 5px 20px rgba(255, 171, 39, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: #ff9500;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 171, 39, 0.6);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        @media (max-width: 768px) {
+            .page-header { padding: 100px 0 60px; }
+            .page-header h1 { font-size: 2.5rem; }
+            .process-step { margin-top: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid bg-dark 0 d-none d-lg-block">
+        <div class="container px-0">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-white me-4"><i class="fas fa-map-marker-alt me-2"></i>Find A Location</a>
+                        <a href="tel:+919319763332" class="text-white me-4"><i class="fas fa-phone-alt me-2"></i>+91-9319763332</a>
+                        <a href="mailto:info@kaivalyamfoundation.org" class="text-white me-0"><i class="fas fa-envelope me-2"></i>info@kaivalyamfoundation.org</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-0"><i class="fab fa-linkedin-in text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid sticky-top px-0">
+        <div class="position-absolute" style="left: 0; top: 0; width: 100%; height: 100%;"></div>
+        <div class="container px-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-white py-3 px-4">
+                <a href="index.html" class="navbar-brand p-0">
+                    <img src="img/logo-black.png" alt="Kaivalyam Foundation">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link active">Services</a>
+                        <a href="project.html" class="nav-item nav-link">Our Activity</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-3 text_secondary mb-4 animate__animated animate__fadeInDown">Our Services</h1>
+                    <nav aria-label="breadcrumb" class="animate__animated animate__fadeInUp animate__delay-1s">
+                        <ol class="breadcrumb justify-content-center mb-0">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Services</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title-enhanced wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">What We Offer</h4>
+                <h1 class="display-4 mb-4 text_secondary">Comprehensive Solutions for Community Development</h1>
+                <p class="mb-0">At Kaivalyam, we offer a wide range of services designed to empower communities, build capacity, and create sustainable impact through innovative approaches and proven methodologies.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-chalkboard-teacher fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Capacity Building & Training</h4>
+                        <p class="mb-4">Comprehensive training programs designed to enhance skills and capabilities of Panchayat representatives, government officials, and community leaders through structured learning modules.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Customized Training Modules</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Workshop & Seminars</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Skill Development Programs</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Certificate Courses</li>
+                        </ul>
+                        <a href="#" class="btn rounded-pill px-4 text-white" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-map-marked-alt fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Exposure Visits</h4>
+                        <p class="mb-4">Organized learning journeys to successful models and best practices across India under RGSA programme, providing hands-on experience and practical insights for implementation.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Pan-India Site Visits</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Best Practice Documentation</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Peer Learning Sessions</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Implementation Support</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-microscope fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Research & Development</h4>
+                        <p class="mb-4">Data-driven research initiatives to identify innovative solutions, conduct impact assessments, and develop evidence-based strategies for sustainable community development.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Impact Assessment Studies</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Policy Research</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Data Analysis & Reporting</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Innovation Labs</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-users-cog fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Community Mobilization</h4>
+                        <p class="mb-4">Engaging communities through participatory approaches, awareness campaigns, and grassroots mobilization to ensure inclusive development and active citizen participation.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Community Engagement</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Awareness Campaigns</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Stakeholder Meetings</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Participatory Planning</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-hand-holding-heart fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Poverty Alleviation Programs</h4>
+                        <p class="mb-4">Targeted interventions to address poverty through livelihood generation, skill development, and creating sustainable economic opportunities for marginalized communities.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Livelihood Programs</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Income Generation Activities</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Micro-Enterprise Development</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Financial Literacy Training</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-seedling fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Sustainable Development</h4>
+                        <p class="mb-4">Promoting eco-friendly practices, climate resilience, and sustainable resource management to ensure long-term environmental and social sustainability.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Environment Conservation</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Renewable Energy Solutions</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Waste Management</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Climate Adaptation Programs</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-lightbulb fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Start-up Mentoring</h4>
+                        <p class="mb-4">Supporting aspiring entrepreneurs with mentorship, guidance, and resources to transform innovative ideas into successful social enterprises and businesses.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Business Plan Development</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Mentorship Programs</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Funding Assistance</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Market Linkages</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-chart-bar fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Monitoring & Evaluation</h4>
+                        <p class="mb-4">Comprehensive M&E frameworks to track progress, measure outcomes, and ensure accountability through systematic data collection and analysis.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Performance Monitoring</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Impact Evaluation</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Reporting Systems</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Quality Assurance</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-detail-card rounded-4 p-4 h-100">
+                        <div class="service-icon-box">
+                            <i class="fas fa-handshake fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Partnership Development</h4>
+                        <p class="mb-4">Building strategic collaborations with governments, NGOs, corporate sector, and academic institutions to create synergies and maximize impact.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Strategic Partnerships</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>CSR Collaborations</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Academic Partnerships</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Government Liaison</li>
+                        </ul>
+                        <a href="#" class="btn text-white rounded-pill px-4" style="background-color: #ffab27;">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title-enhanced wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Approach</h4>
+                <h1 class="display-4 mb-4 text_secondary">How We Work</h1>
+                <p class="mb-0">Our systematic approach ensures effective implementation and measurable outcomes at every stage of the project lifecycle.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="process-step text-center">
+                        <div class="process-number">1</div>
+                        <i class="fas fa-search fa-3x text_secondary mb-3"></i>
+                        <h5 class="mb-3">Assessment & Planning</h5>
+                        <p class="mb-0">Comprehensive needs assessment and strategic planning based on community requirements and project objectives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="process-step text-center">
+                        <div class="process-number">2</div>
+                        <i class="fas fa-cogs fa-3x text_secondary mb-3"></i>
+                        <h5 class="mb-3">Design & Development</h5>
+                        <p class="mb-0">Creating customized programs and interventions tailored to specific community contexts and challenges.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="process-step text-center">
+                        <div class="process-number">3</div>
+                        <i class="fas fa-rocket fa-3x text_secondary mb-3"></i>
+                        <h5 class="mb-3">Implementation</h5>
+                        <p class="mb-0">Executing programs with active community participation and continuous monitoring for quality assurance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="process-step text-center">
+                        <div class="process-number">4</div>
+                        <i class="fas fa-chart-line fa-3x text_secondary mb-3"></i>
+                        <h5 class="mb-3">Evaluation & Reporting</h5>
+                        <p class="mb-0">Measuring impact, documenting outcomes, and providing comprehensive reports with actionable insights.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title-enhanced wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Key Focus Areas</h4>
+                <h1 class="display-4 mb-4 text_secondary">What We Do</h1>
+                <p class="mb-0">We work across 13 key focus areas to drive holistic human development, community empowerment, and sustainable change across India.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-graduation-cap fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Education Research & Skill Development</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Conducting research to enhance educational practices</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Offering skill development programs to boost employability</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.15s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-hand-holding-heart fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Poverty Alleviation</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Implementing poverty reduction initiatives tailored to local needs</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Empowering underprivileged communities through economic opportunities</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-lightbulb fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Start-up Mentoring</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Incubating and mentoring emerging entrepreneurs</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Facilitating access to resources and networks for start-up growth</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.25s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-globe-asia fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Cultural Diversity & Inclusion</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Promoting cultural diversity and understanding</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Advancing inclusive practices and policies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-home fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Quality of Life Enhancement</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Initiating community development projects to improve living standards</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Advocating for better infrastructure and public services</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.35s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-leaf fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Environmental Sustainability</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Undertaking eco-friendly initiatives and conservation efforts</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Educating communities on environmental stewardship</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-heartbeat fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Healthcare Access</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Ensuring access to healthcare services for underserved populations</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Conducting health awareness campaigns and medical missions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.15s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-users-cog fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Capacity Building</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Providing training and workshops to enhance individual and organizational capacities</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Nurturing local leadership and governance skills</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-chart-line fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Data Management & Performance Assessment</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Leveraging data for evidence-based decision-making</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Ensuring robust performance assessment and impact measurement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.25s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-rocket fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Innovation & Incubation</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Fostering a culture of innovation through incubation programs</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Supporting innovative solutions to address community challenges</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-briefcase fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Entrepreneurship & Job Creation</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Encouraging entrepreneurship as a means of job creation</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Supporting micro and small enterprises for economic growth</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.35s">
+                    <div class="wwd-card">
+                        <div class="wwd-icon-box">
+                            <i class="fas fa-chalkboard-teacher fa-2x text_secondary"></i>
+                        </div>
+                        <h5 class="mb-3 text_secondary">Training & Development</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Offering training programs across various sectors</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary me-2 mt-1" style="flex-shrink:0;"></i>
+                                <span class="text-muted">Nurturing talent and skills to meet evolving industry demands</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+               
+
+            </div>
+        </div>
+    </section>
+    <section class="py-5 cta-section">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-8 wow fadeInLeft" data-wow-delay="0.1s">
+                    <h2 class="text-white mb-3">Ready to Get Started?</h2>
+                    <p class="text-white mb-0">Contact us today to discuss your requirements and learn how we can help transform your community through our comprehensive services.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end wow fadeInRight" data-wow-delay="0.2s">
+                    <a href="contact.html" class="btn btn-light rounded-pill py-3 px-5">Contact Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title-enhanced wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">FAQ</h4>
+                <h1 class="display-4 mb-4 text_secondary">Frequently Asked Questions</h1>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button text_secondary" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    What is the RGSA Programme?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Rashtriya Gram Swaraj Abhiyan (RGSA) is a centrally sponsored scheme launched by the Ministry of Panchayati Raj to strengthen Panchayati Raj Institutions through capacity building and training programs. Kaivalyam is a recognized partner for conducting training and exposure visits under this program.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text_secondary" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    How long do training programs typically last?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Training program duration varies based on the specific requirements and objectives. Typically, our programs range from 3-day intensive workshops to 5-day comprehensive training modules. Exposure visits usually last 5-7 days including travel and site visits.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text_secondary" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do participants receive certificates?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, all participants who successfully complete our training programs receive government-recognized certificates. These certificates are issued jointly by the relevant government authorities and Kaivalyam Foundation.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text_secondary" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Can programs be customized for specific needs?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! We specialize in creating customized programs tailored to specific organizational requirements, community contexts, and project objectives. Contact us to discuss your unique needs and we'll design a program that meets your goals.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text_secondary" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    What is your approach to monitoring and evaluation?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We implement comprehensive M&E frameworks that include pre and post-training assessments, regular monitoring during implementation, impact evaluation studies, and detailed reporting with quantifiable outcomes. Our data-driven approach ensures transparency and accountability.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text_secondary" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    How can organizations partner with Kaivalyam?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We welcome partnerships with government agencies, NGOs, corporate organizations, and academic institutions. You can reach out to us through our contact page, email, or phone. We'll schedule a consultation to discuss potential collaboration opportunities and partnership models.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="container-fluid footer wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-item">
+                        <img src="img/logo-white.png" alt="Kaivalyam Foundation" class="mb-3" style="margin-left: -70px;">
+                        <div class="d-flex align-items-center mt-3">
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-facebook-f text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-twitter text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-instagram text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in text_secondary"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Useful Links</h4>
+                        <a href="index.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Home</a>
+                        <a href="about.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="service.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Services</a>
+                        <a href="project.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Our Activity</a>
+                        <a href="contact.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Contact Info</h4>
+                        <a href="" class="mb-3"><i class="fa fa-map-marker-alt me-2"></i> 1st Floor, Orion Square, Main Sahastradhara Road, Dehradun, Uttarakhand - 248001</a>
+                        <a href="mailto:info@kaivalyamfoundation.org" class="mb-3"><i class="fas fa-envelope me-2"></i> info@kaivalyamfoundation.org</a>
+                        <a href="tel:+919319763332" class="mb-3"><i class="fas fa-phone me-2"></i> +91-9319763332</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +91-9319763332</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        new WOW().init();
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').fadeIn('slow');
+            } else {
+                $('.back-to-top').fadeOut('slow');
+            }
+        });
+        
+        $('.back-to-top').click(function () {
+            $('html, body').animate({scrollTop: 0}, 1000, 'easeInOutExpo');
+            return false;
+        });
+    </script>
+</body>
+
+</html>

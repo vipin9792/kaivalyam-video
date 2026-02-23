@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kaivalyam - Human Performance Improvement Foundation</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Kaivalyam Foundation, Human Development, Community Empowerment" name="keywords">
+    <meta content="Empowering communities through holistic human development and sustainable solutions" name="description">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+             body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img,
+        .lightbox-content video {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-controls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .close-btn {
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .prev-btn {
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .next-btn {
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+ 
+        .page-header {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .page-header .breadcrumb-item a {
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .page-header .breadcrumb-item a:hover {
+            color: var(--bs-primary) !important;
+        }
+
+    
+        .carousel-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .carousel-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .carousel-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color:#ffab27
+        }
+
+        .custom-carousel {
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .custom-carousel .carousel-inner {
+            border-radius: 15px;
+        }
+
+        .custom-carousel .carousel-item {
+            height: 600px;
+        }
+
+        .custom-carousel .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .custom-carousel .carousel-control-prev,
+        .custom-carousel .carousel-control-next {
+            width: 60px;
+            height: 60px;
+            background: #ffab27;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+
+        .custom-carousel .carousel-control-prev {
+            left: 20px;
+        }
+
+        .custom-carousel .carousel-control-next {
+            right: 20px;
+        }
+
+        .custom-carousel .carousel-control-prev:hover,
+        .custom-carousel .carousel-control-next:hover {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .custom-carousel .carousel-indicators {
+            margin-bottom: 20px;
+        }
+
+        .custom-carousel .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-title {
+                font-size: 2rem;
+            }
+            
+            .custom-carousel .carousel-item {
+                height: 400px;
+            }
+
+            .custom-carousel .carousel-control-prev,
+            .custom-carousel .carousel-control-next {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid  bg-dark  px-0 d-none d-lg-block">
+        <div class="container px-0">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-white me-4"><i class="fas fa-map-marker-alt  me-2"></i>Find A Location</a>
+                        <a href="tel:+919319763332" class="text-white me-4"><i class="fas fa-phone-alt  me-2"></i>+91-9319763332</a>
+                        <a href="mailto:info@kaivalyamfoundation.org" class="text-white me-0"><i class="fas fa-envelope  me-2"></i>KAIVALYAMFOUNDATION.ORG</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-0"><i class="fab fa-linkedin-in text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid sticky-top px-0">
+        <div class="position-absolute " style="left: 0; top: 0; width: 100%; height: 100%;"></div>
+        <div class="container px-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-white py-3 px-4">
+                <a href="index.html" class="navbar-brand p-0">
+                    <img src="img/logo-black.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link ">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="project.html" class="nav-item nav-link active">Our Activity</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1600') center center no-repeat; background-size: cover;">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text_secondary mb-4 animated slideInDown">Our Activities</h1>
+            <p class="text-white fs-5 mb-4 animated slideInDown">Explore our journey through images and videos of impactful community work</p>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Activities</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="image">Images</button>
+                <button class="filter-btn" data-filter="video">Videos</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="workshop">Workshops</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="gallery-container">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="video events" data-index="0">
+                    <div class="gallery-item-media">
+                        <video>
+                            <source src="assets/videos/video-1.MP4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+  <div class="gallery-item" data-category="video events" data-index="8">
+                    <div class="gallery-item-media">
+                        <video>
+                            <source src="assets/videos/video-2.MP4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+                    </div>
+                </div>
+  <div class="gallery-item" data-category="video events" data-index="8">
+                    <div class="gallery-item-media">
+                        <video>
+                            <source src="assets/videos/video-3.MP4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="image workshop" data-index="1">
+                    <div class="gallery-item-media">
+                        <img src="assets/events/image-1.JPG" alt="Tech Workshop">
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="image workshop" data-index="7">
+                    <div class="gallery-item-media">
+                        <img src="assets/events/image-2.JPG" alt="Leadership Summit">
+                    </div>
+                </div>
+                 <div class="gallery-item" data-category="image workshop" data-index="4">
+                    <div class="gallery-item-media">
+                        <img src="assets/events/image-3.JPG" alt="Art Exhibition">
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="image workshop" data-index="5">
+                    <div class="gallery-item-media">
+                        <img src="assets/events/image-4.JPG" alt="Science Fair">
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="image workshop" data-index="10">
+                    <div class="gallery-item-media">
+                        <img src="assets/events/image-5.JPG" alt="Learning Session">
+                    </div>
+                </div> 
+  <div class="gallery-item" data-category="image events" data-index="9">
+                    <div class="gallery-item-media">
+                        <img src="assets/images/image-10.JPG" alt="Campus Life">
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="image events" data-index="2">
+                    <div class="gallery-item-media">
+                        <img src="assets/images/image-9.JPG" alt="Sports Day">
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="image events" data-index="3">
+                    <div class="gallery-item-media">
+                        <img src="assets/images/image-8.JPG" alt="Cultural Night">
+                    </div>
+                </div>
+               
+                <div class="gallery-item" data-category="image events" data-index="6">
+                    <div class="gallery-item-media">
+                        <img src="assets/images/image-11.JPG" alt="Graduation Day">
+                    </div>
+                </div>
+                
+
+
+                <div class="gallery-item" data-category="image events" data-index="11">
+                    <div class="gallery-item-media">
+                        <img src="assets/images/image-12.JPG" alt="Team Activity">
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <div id="lightboxContent"></div>
+            <div class="lightbox-controls">
+                <button id="lightboxClose" class="lightbox-btn close-btn">&times;</button>
+                <button id="lightboxPrev" class="lightbox-btn prev-btn">&#10094;</button>
+                <button id="lightboxNext" class="lightbox-btn next-btn">&#10095;</button>
+                <div id="lightboxCounter" class="lightbox-counter"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-item">
+                        <img src="img/logo-white.png" alt="Kaivalyam Foundation" class="mb-3 " style="margin-left: -70px;">
+                        
+                        <div class="d-flex align-items-center mt-3">
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-facebook-f text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-twitter text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-instagram text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in text_secondary"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class=" mb-4" style="color: #ffab27;">Useful Links</h4>
+                        <a href="index.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Home</a>
+                        <a href="about.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="service.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Services</a>
+                        <a href="project.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Our Activity</a>
+                        <a href="contact.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Contact Info</h4>
+                        <a href="" class="mb-3"><i class="fa fa-map-marker-alt me-2"></i> 1st Floor, Orion Square, Main Sahastradhara Road, Dehradun, Uttarakhand - 248001</a>
+                        <a href="mailto:info@kaivalyamfoundation.org" class="mb-3"><i class="fas fa-envelope me-2"></i> info@kaivalyamfoundation.org</a>
+                        <a href="tel:+919319763332" class="mb-3"><i class="fas fa-phone me-2"></i> +91-9319763332</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +91-9319763332</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                galleryItems.forEach((item, index) => {
+                    const categories = item.getAttribute('data-category').split(' ');
+                    
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        item.style.display = 'block';
+                        item.style.animation = 'none';
+                        setTimeout(() => {
+                            item.style.animation = `slideUp 0.5s ease ${index * 0.1}s forwards`;
+                        }, 10);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxContent = document.getElementById('lightboxContent');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentIndex = 0;
+        let allMedia = [];
+
+        function collectMediaItems() {
+            allMedia = [];
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach((item, index) => {
+                if (item.style.display !== 'none') {
+                    const media = item.querySelector('img, video');
+                    allMedia.push({
+                        element: media,
+                        index: parseInt(item.getAttribute('data-index'))
+                    });
+                }
+            });
+        }
+
+     
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.gallery-item').forEach((item) => {
+                item.addEventListener('click', (e) => {
+                    collectMediaItems();
+                    currentIndex = allMedia.findIndex(m => m.index === parseInt(item.getAttribute('data-index')));
+                    if (currentIndex !== -1) {
+                        showLightbox();
+                    }
+                });
+            });
+        });
+
+        function showLightbox() {
+            if (!lightbox || !lightboxContent || !lightboxCounter) {
+                console.error('Lightbox elements not found');
+                return;
+            }
+            
+            const mediaData = allMedia[currentIndex];
+            if (!mediaData) {
+                console.error('No media data found for index:', currentIndex);
+                return;
+            }
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            lightboxContent.innerHTML = '';
+            const mediaClone = mediaData.element.cloneNode(true);
+            
+            if (mediaClone.tagName === 'VIDEO') {
+                mediaClone.controls = true;
+                mediaClone.autoplay = true;
+            }
+            
+            lightboxContent.appendChild(mediaClone);
+            lightboxCounter.textContent = `${currentIndex + 1} / ${allMedia.length}`;
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            const video = lightboxContent.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+        }
+
+        function navigateLightbox(direction) {
+            const video = lightboxContent.querySelector('video');
+            if (video) {
+                video.pause();
+            }
+            
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = allMedia.length - 1;
+            if (currentIndex >= allMedia.length) currentIndex = 0;
+            showLightbox();
+        }
+
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', closeLightbox);
+            }
+            if (lightboxPrev) {
+                lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+            }
+            if (lightboxNext) {
+                lightboxNext.addEventListener('click', () => navigateLightbox(1));
+            }
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+            }
+        });
+    </script>
+
+</body>
+</html>

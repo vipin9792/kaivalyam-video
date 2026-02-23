@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kaivalyam - Human Performance Improvement Foundation</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Kaivalyam Foundation, Human Development, Community Empowerment" name="keywords">
+    <meta content="Empowering communities through holistic human development and sustainable solutions" name="description">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-orange: #ffab27;
+            --primary-blue: #007bff;
+            --dark-bg: #212529;
+        }
+
+      
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+     
+        .preloader-ring {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preloader-ring::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid #e9ecef;
+            border-top-color: #ffab27;
+            border-right-color: #ffab27;
+            animation: spin 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+     
+        .preloader-ring::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 171, 39, 0.2);
+            animation: pulse-ring 1.5s ease-in-out infinite;
+        }
+
+        .preloader-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            animation: logo-breathe 1.5s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+      
+        .preloader-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffab27, #ff9500);
+            border-radius: 0 2px 2px 0;
+            animation: progress-fill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+      
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50%       { transform: scale(1.08); opacity: 0.15; }
+        }
+
+        @keyframes logo-breathe {
+            0%, 100% { transform: scale(1);    opacity: 1; }
+            50%       { transform: scale(1.06); opacity: 0.85; }
+        }
+
+        @keyframes progress-fill {
+            0%   { width: 0%; }
+            60%  { width: 75%; }
+            100% { width: 100%; }
+        }
+
+     
+
+        #videoPopupOverlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.80);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        #videoPopupOverlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+      
+        #videoPopupOverlay > .video-popup-close {
+            position: absolute;
+            z-index: 100001;
+        }
+
+        .video-popup-box {
+            position: relative;
+            width: 92%;
+            max-width: 780px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            transform: scale(0.88) translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #videoPopupOverlay.active .video-popup-box {
+            transform: scale(1) translateY(0);
+        }
+
+   
+        .video-popup-close {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #ddd;
+            color: #333;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100001;
+            transition: all 0.25s;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+            line-height: 1;
+        }
+
+        .video-popup-close:hover {
+            background: #ffab27;
+            border-color: #ffab27;
+            color: #fff;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        @media (max-width: 860px) {
+            .video-popup-close {
+                top: 8px !important;
+                left: auto !important;
+                right: 8px;
+                position: fixed;
+            }
+        }
+
+    
+        .video-popup-body {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #000;
+        }
+
+        .video-popup-body video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+     
+        .video-click-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+      
+        .video-controls-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+        }
+
+        .vc-btn {
+            background: none;
+            border: none;
+            padding: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            opacity: 0.9;
+            transition: opacity 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .vc-btn:hover { opacity: 1; transform: scale(1.15); }
+
+        .vc-progress-wrap {
+            flex: 1;
+            cursor: pointer;
+            padding: 6px 0;
+        }
+
+        .vc-progress-bg {
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .vc-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #ffab27;
+            border-radius: 4px;
+            transition: width 0.3s linear;
+        }
+
+        .vc-time {
+            color: rgba(255,255,255,0.85);
+            font-size: 11px;
+            white-space: nowrap;
+            font-family: 'Poppins', sans-serif;
+            flex-shrink: 0;
+        }
+
+      
+        .video-popup-footer {
+            padding: 24px 28px 26px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .vp-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .vp-subtitle {
+            font-size: 13.5px;
+            color: #666;
+            margin-bottom: 18px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .vp-cta-btn {
+            display: inline-block;
+            background: #1a56db;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 11px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.25s, transform 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .vp-cta-btn:hover {
+            background: #ffab27;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+   
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .topbar {
+            background: #ffab27;
+           
+        }
+
+        .topbar a:hover {
+            color: var(--primary-orange) !important;
+            transform: translateX(3px);
+            transition: all 0.3s;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .header-carousel-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(255, 171, 39, 0.2));
+            z-index: 1;
+        }
+
+        .header-carousel-item img {
+            transition: transform 8s ease;
+        }
+
+        .header-carousel-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .video-carousel-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        #videoCarousel {
+            border-radius: 20px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            transition: all 0.3s;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: var(--primary-orange) !important;
+            transform: scale(1.1);
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #ff9500 100%);
+            border-radius: 15px;
+            padding: 30px 20px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .stats-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 171, 39, 0.4);
+        }
+
+        .service-item {
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 171, 39, 0.3);
+            border-color: rgba(255, 171, 39, 0.3);
+        }
+
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-item i {
+            transition: all 0.4s;
+        }
+
+        .service-item:hover i {
+            transform: scale(1.1) rotate(5deg);
+            color: var(--primary-orange) !important;
+        }
+
+        .tab-button {
+            transition: all 0.3s;
+            border: 2px solid var(--primary-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .tab-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .tab-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tab-button.active {
+            background: var(--primary-orange);
+            color: white !important;
+        }
+
+        .content-section {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section img {
+            transition: all 0.4s;
+        }
+
+        .content-section img:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #ff9500 100%);
+            border-radius: 50%;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .feature-icon-wrapper:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(255, 171, 39, 0.4);
+        }
+
+        .feature-icon-wrapper i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-item {
+            transition: all 0.4s;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .team-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-img img {
+            transition: all 0.5s;
+        }
+
+        .team-item:hover .team-img img {
+            transform: scale(1.1);
+        }
+
+        .team-icon {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: all 0.4s;
+        }
+
+        .team-item:hover .team-icon {
+            transform: translateY(0);
+        }
+
+        .testimonial-item {
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 171, 39, 0.2);
+            border-color: rgba(255, 171, 39, 0.3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            box-shadow: 0 5px 20px rgba(255, 171, 39, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: #ff9500;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 171, 39, 0.6);
+        }
+
+        .about-feature-item {
+            transition: all 0.3s;
+            padding-left: 5px;
+        }
+
+        .about-feature-item:hover {
+            padding-left: 15px;
+            color: var(--primary-orange) !important;
+        }
+
+        .about-customer img {
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .about-customer img:hover {
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-box {
+                margin-bottom: 15px;
+            }
+
+            .feature-icon-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        img {
+            transition: opacity 0.3s;
+        }
+
+        img:hover {
+            opacity: 0.95;
+        }
+    </style>
+</head>
+
+<body>
+
+ 
+    <div id="preloader">
+        <div class="preloader-bar"></div>
+        <div class="preloader-content">
+            <div class="preloader-ring">
+                <img src="img/logo-black.png" alt="Kaivalyam Foundation" class="preloader-logo">
+            </div>
+        </div>
+    </div>
+
+ 
+    <div id="videoPopupOverlay">
+
+   
+        <button class="video-popup-close" onclick="closeVideoPopup()">&#x2715;</button>
+
+        <div class="video-popup-box">
+
+          
+            <div class="video-popup-body">
+                <video id="popupVideo" autoplay muted playsinline>
+                    <source src="videos/slider-1.mp4" type="video/mp4">
+                </video>
+
+          
+                <div class="video-click-overlay" onclick="togglePopupVideo()"></div>
+
+             
+                <div class="video-controls-bar">
+                 
+                    <button class="vc-btn" id="playPauseBtn" onclick="togglePopupVideo(); event.stopPropagation();">
+                        <svg id="playIcon" viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+                        <svg id="pauseIcon" viewBox="0 0 24 24" fill="white" width="18" height="18" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                  
+                    <div class="vc-progress-wrap" onclick="seekVideo(event); event.stopPropagation();">
+                        <div class="vc-progress-bg">
+                            <div class="vc-progress-fill" id="vcProgressFill"></div>
+                        </div>
+                    </div>
+                   
+                    <span class="vc-time" id="vcTime">0:00 / 0:00</span>
+                
+                    <button class="vc-btn" id="muteBtn" onclick="toggleMute(); event.stopPropagation();">
+                        <svg id="unmuteIcon" viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                        <svg id="muteIcon" viewBox="0 0 24 24" fill="white" width="18" height="18" style="display:none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                    </button>
+                    
+                    <button class="vc-btn" onclick="toggleFullscreen(); event.stopPropagation();">
+                        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+           
+            <div class="video-popup-footer">
+                <h5 class="vp-title">Welcome to Kaivalyam Foundation</h5>
+                <p class="vp-subtitle">Empowering communities through holistic human development</p>
+                <a href="project.html" class="vp-cta-btn" onclick="closeVideoPopup()">Watch More Videos</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid  bg-dark x-0 d-none d-lg-block">
+        <div class="container px-0">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-white me-4"><i class="fas fa-map-marker-alt me-2"></i>Find A Location</a>
+                        <a href="tel:+919319763332" class="text-white me-4"><i class="fas fa-phone-alt me-2"></i>+91-9319763332</a>
+                        <a href="/cdn-cgi/l/email-protection#ddb4b3bbb29db6bcb4abbcb1a4bcb0bbb2a8b3b9bca9b4b2b3f3b2afba" class="text-white me-0"><i class="fas fa-envelope me-2"></i><span class="__cf_email__" data-cfemail="bed7d0d8d1fed5dfd7c8dfd2c7dfd3d8d1cbd0dadfcad7d1d090d1ccd9">[email&#160;protected]</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-0"><i class="fab fa-linkedin-in text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid sticky-top px-0">
+        <div class="position-absolute" style="left: 0; top: 0; width: 100%; height: 100%;"></div>
+        <div class="container px-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-white py-3 px-4">
+                <a href="index.html" class="navbar-brand p-0">
+                    <img src="img/logo-black.png" alt="Kaivalyam Foundation">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="project.html" class="nav-item nav-link">Our Activity</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="header-carousel owl-carousel">
+        <div class="header-carousel-item">
+            <div class="header-carousel-item-img-1">
+                <img src="img/slider-1.png" class="img-fluid" alt="Image">
+            </div>
+            <div class="carousel-caption">
+                <div class="carousel-caption-inner text-start p-3">
+                </div>
+            </div>
+        </div>
+        <div class="header-carousel-item mx-auto">
+            <div class="header-carousel-item-img-2">
+                <img src="img/slider-2.png" class="img-fluid" alt="Image">
+            </div>
+            <div class="carousel-caption">
+                <div class="carousel-caption-inner text-center p-3">
+                </div>
+            </div>
+        </div>
+        <div class="header-carousel-item">
+            <div class="header-carousel-item-img-3">
+                <img src="img/slider-3.png" class="img-fluid" alt="Image">
+            </div>
+            <div class="carousel-caption">
+                <div class="carousel-caption-inner text-end p-3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid about bg-light py-5 mt-5 ">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 col-xl-5 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="video-carousel-wrapper">
+                    <div id="videoCarousel" class="carousel slide shadow-lg rounded-4" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="0" class="active rounded-circle" style="width: 12px; height: 12px;"></button>
+                            <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="1" class="rounded-circle" style="width: 12px; height: 12px;"></button>
+                            <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="2" class="rounded-circle" style="width: 12px; height: 12px;"></button>
+                        </div>
+                        
+                        <div class="carousel-inner rounded-4">
+                            <div class="carousel-item active w-100 rounded-top bg-white">
+                                <div class="position-relative" style="padding-top: 56.25%;">
+                                    <video id="video1" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-4" preload="metadata">
+                                        <source src="videos/slider-1.mp4#t=0.1" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div id="playOverlay1" class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.3);">
+                                        <button class="btn rounded-circle d-flex align-items-center justify-content-center" onclick="playVideo(1)" style="width: 80px; height: 80px; opacity: 0.9; background-color: #ffab27;">
+                                            <i class="bi bi-play-fill fs-1 text-white" style="margin-left: 5px;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="position-relative" style="padding-top: 56.25%;">
+                                    <video id="video2" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-4" preload="metadata">
+                                        <source src="videos/slider-2.mp4#t=0.1" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div id="playOverlay2" class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.3);">
+                                        <button class="btn rounded-circle d-flex align-items-center justify-content-center" onclick="playVideo(2)" style="width: 80px; height: 80px; opacity: 0.9; background-color: #ffab27;">
+                                            <i class="bi bi-play-fill fs-1 text-white" style="margin-left: 5px;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="position-relative" style="padding-top: 56.25%;">
+                                    <video id="video3" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-4" preload="metadata">
+                                        <source src="videos/slider-3.mp4#t=0.1" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div id="playOverlay3" class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.3);">
+                                        <button class="btn rounded-circle d-flex align-items-center justify-content-center" onclick="playVideo(3)" style="width: 80px; height: 80px; opacity: 0.9; background-color: #ffab27;">
+                                            <i class="bi bi-play-fill fs-1 text-white" style="margin-left: 5px;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; top: 50%; transform: translateY(-50%); left: 20px; background: #ffab27; border-radius: 50%; opacity: 0.8;">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next" style="width: 50px; height: 50px; top: 50%; transform: translateY(-50%); right: 20px; background: #ffab27; border-radius: 50%; opacity: 0.8;">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-7 wow fadeInRight" data-wow-delay="0.3s">
+                <h1 class="display-5 mb-4 text_secondary">Our Success Story</h1>
+                <p class="text ps-4 mb-4">Being the pioneers and leaders in conducting exposure visits with rich experience of largest number of visits done across the country under the Rashtriya Gram Swaraj Abhiyan (RGSA) programme, Kaivalyam focuses on measurable training outcomes in terms of outreach, monitoring tools to access quantifiable results. Our Diversity, Equity & Inclusivity (DEI) approach helps group of participants learn a lot from one of the most effective and inspirational ways of learning for Panchayats representatives.</p>
+                
+                <div class="row g-4 justify-content-between mb-2">
+                    <div class="col-lg-6 col-xl-5">
+                        <p class="text-dark about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Research and Development</p>
+                        <p class="text-dark mb-0 about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Poverty Alleviation</p>
+                    </div>
+                    <div class="col-lg-6 col-xl-7">
+                        <p class="text-dark about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Start-up Mentoring</p>
+                        <p class="text-dark mb-0 about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Cultural Diversity and Inclusion</p>
+                    </div>
+                </div>
+
+                <div class="row g-4 justify-content-between mb-5">
+                    <div class="col-lg-6 col-xl-5">
+                        <p class="text-dark about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Quality of Life Enhancement</p>
+                        <p class="text-dark mb-0 about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Community Development</p>
+                    </div>
+                    <div class="col-lg-6 col-xl-7">
+                        <p class="text-dark about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Sustainable Solutions</p>
+                        <p class="text-dark mb-0 about-feature-item"><i class="fas fa-check-circle text-primary me-1"></i>Capacity Building</p>
+                    </div>
+                </div>
+
+                <!-- <div class="row g-4 justify-content-between mb-5">
+                    <div class="col-xl-5"><a href="about.html" class="btn btn-primary rounded-pill py-3 px-5">Discover More</a></div>
+                    <div class="col-xl-7 mb-5">
+                        <div class="about-customer d-flex position-relative">
+                            <img src="img/customer-img-1.jpg" class="img-fluid btn-xl-square position-absolute" style="left: 0; top: 0;" alt="Image">
+                            <img src="img/customer-img-2.jpg" class="img-fluid btn-xl-square position-absolute" style="left: 45px; top: 0;" alt="Image">
+                            <img src="img/customer-img-3.jpg" class="img-fluid btn-xl-square position-absolute" style="left: 90px; top: 0;" alt="Image">
+                            <img src="img/customer-img-1.jpg" class="img-fluid btn-xl-square position-absolute" style="left: 135px; top: 0;" alt="Image">
+                            <div class="position-absolute text-dark" style="left: 220px; top: 10px;">
+                                <p class="mb-0">58000+ Trained</p>
+                                <p class="mb-0">Participants</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                
+                
+                <div class="row g-4 text-center align-items-center justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="stats-box">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value fs-1 fw-bold text-dark" data-toggle="counter-up">1000</span>
+                                <h4 class="text-dark fs-1 mb-0" style="font-weight: 600; font-size: 25px;">+</h4>
+                            </div>
+                            <div class="w-100 d-flex align-items-center justify-content-center">
+                                <p class="text-white mb-0">Participants Trained During Thematic Training</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="stats-box">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value fs-1 fw-bold text-white" data-toggle="counter-up">58000</span>
+                                <h4 class="text-white fs-1 mb-0" style="font-weight: 600; font-size: 25px;">+</h4>
+                            </div>
+                            <div class="w-100 d-flex align-items-center justify-content-center">
+                                <p class="mb-0 text-white">Participants Went on Exposure Visits</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="stats-box">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="counter-value fs-1 fw-bold text-dark" data-toggle="counter-up">10</span>
+                                <h4 class="text-dark fs-1 mb-0" style="font-weight: 600; font-size: 25px;">+</h4>
+                            </div>
+                            <div class="w-100 d-flex align-items-center justify-content-center">
+                                <p class="text-white mb-0">Years Of Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h1 class="display-4 text_secondary">Comprehensive Solutions for Community Development</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded h-100 p-5 bg-light">
+                        <div class="mb-4">
+                            <i class="fas fa-users fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Capacity Building</h4>
+                        <p class="mb-4">Comprehensive training programs designed to enhance skills and capabilities of community leaders and representatives.</p>
+                        <a href="service.html" class="btn btn-primary rounded-pill py-2 px-4">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-item rounded h-100 p-5 bg-light">
+                        <div class="mb-4">
+                            <i class="fas fa-route fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Exposure Visits</h4>
+                        <p class="mb-4">Organized learning journeys to successful models and best practices across the country for practical insights.</p>
+                        <a href="service.html" class="btn btn-primary rounded-pill py-2 px-4">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded h-100 p-5 bg-light">
+                        <div class="mb-4">
+                            <i class="fas fa-chart-line fa-3x text_secondary"></i>
+                        </div>
+                        <h4 class="mb-3">Research & Development</h4>
+                        <p class="mb-4">Data-driven research initiatives to identify innovative solutions for sustainable community development.</p>
+                        <a href="service.html" class="btn btn-primary rounded-pill py-2 px-4">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-3 text_secondary" style="font-size:42px;">Mission, Vision & Values</h2>
+            <div style="width:80px;height:4px;background:#ffab27;margin:auto;border-radius:5px;"></div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap mb-5">
+            <div onclick="showContent('mission')" id="btn-mission" style="cursor:pointer;">
+                <button class="tab-button btn fw-semibold px-4 py-2 rounded-pill">
+                    <span>Mission</span>
+                </button>
+            </div>
+            <div onclick="showContent('vision')" id="btn-vision" style="cursor:pointer;">
+                <button class="tab-button btn fw-semibold px-4 py-2 rounded-pill active">
+                    <span>Vision</span>
+                </button>
+            </div>
+            <div onclick="showContent('values')" id="btn-values" style="cursor:pointer;">
+                <button class="tab-button btn fw-semibold px-4 py-2 rounded-pill">
+                    <span>Values</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-lg p-4 p-md-5">
+            <div id="mission-content" class="content-section">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" class="img-fluid rounded-4 shadow" alt="Mission">
+                    </div>
+                    <div class="col-md-6">
+                        <span class="badge bg-light text-dark px-3 py-2 rounded-pill mb-3">Our Mission</span>
+                        <h3 class="fw-bold mb-4 text_secondary">Empowering Through Innovation</h3>
+                        <p class="text-muted mb-4" style="line-height:1.8;">
+                            At Kaivalyam Human Performance Improvement Foundation, our mission is to drive holistic human development by fostering collaboration, promoting sustainability, and empowering individuals and communities. We are committed to working alongside local communities, governments, academic institutions, and corporate partners to design and implement impactful solutions that create measurable and lasting change. Through innovation, inclusivity, and ethical practices, we strive to enhance quality of life and build resilient, self-sustaining communities for the future.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-3" style="color:#ffab27;"></i>
+                                Deliver exceptional value
+                            </li>
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-3" style="color:#ffab27;"></i>
+                                Foster innovation
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-3" style="color:#ffab27;"></i>
+                                Create sustainable impact
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vision-content" class="content-section" style="display:none;">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" class="img-fluid rounded-4 shadow" alt="Vision">
+                    </div>
+                    <div class="col-md-6">
+                        <span class="badge bg-light text-dark px-3 py-2 rounded-pill mb-3">Our Vision</span>
+                        <h3 class="fw-bold mb-4 text_secondary">Leading Global Transformation</h3>
+                        <p class="text-muted mb-4" style="line-height:1.8;">
+                            To be a global leader recognized for excellence, innovation, and integrity across the globe.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-3" style="color:#ffab27;"></i>
+                                Industry leadership
+                            </li>
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-3" style="color:#ffab27;"></i>
+                                Global expansion
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill me-3" style="color:#ffab27;"></i>
+                                Excellence standards
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="values-content" class="content-section" style="display:none;">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800" class="img-fluid rounded-4 shadow" alt="Values">
+                    </div>
+                    <div class="col-md-6">
+                        <span class="badge bg-light text-dark px-3 py-2 rounded-pill mb-3">Our Values</span>
+                        <h3 class="fw-bold mb-4 text_secondary">Guided by Principles</h3>
+                        <p class="text-muted mb-4" style="line-height:1.8;">
+                            At Kaivalyam Human Performance Improvement Foundation, our approach is rooted in collaboration, sustainability, and empowerment. We work closely with local communities, governments, academia, and corporate partners to co-create and implement solutions that lead to lasting progress. Our values include integrity, inclusivity, adaptability, and a commitment to ethical practices.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><strong>Integrity:</strong> Doing what's right</li>
+                            <li class="mb-3"><strong>Innovation:</strong> Embrace creativity</li>
+                            <li class="mb-3"><strong>Excellence:</strong> Strive for best</li>
+                            <li class="mb-3"><strong>Collaboration:</strong> Work together</li>
+                            <li><strong>Respect:</strong> Value every individual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Why Choose Us</h4>
+                <h1 class="display-4 text_secondary">What Makes Us Different</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="text-center">
+                        <div class="feature-icon-wrapper d-inline-flex align-items-center justify-content-center mb-4">
+                            <i class="fas fa-award fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mb-3">10+ Years Experience</h5>
+                        <p class="text-muted">Proven track record in community development and training programs</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="text-center">
+                        <div class="feature-icon-wrapper d-inline-flex align-items-center justify-content-center mb-4">
+                            <i class="fas fa-certificate fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mb-3">Certified Programs</h5>
+                        <p class="text-muted">All our training programs are government-recognized and certified</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="text-center">
+                        <div class="feature-icon-wrapper d-inline-flex align-items-center justify-content-center mb-4">
+                            <i class="fas fa-user-tie fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mb-3">Expert Team</h5>
+                        <p class="text-muted">Dedicated professionals with expertise in development sector</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="text-center">
+                        <div class="feature-icon-wrapper d-inline-flex align-items-center justify-content-center mb-4">
+                            <i class="fas fa-headset fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mb-3">24/7 Support</h5>
+                        <p class="text-muted">Continuous support and guidance throughout program implementation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid team pb-5 my-3">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Team</h4>
+                <h1 class="display-4 text_secondary">Our Kaivalyam Company Dedicated Team Member</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text-white">Mark D. Brock</h4>
+                                <p class="text-muted mb-0">CEO & Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text-white">Sarah Johnson</h4>
+                                <p class="text-muted mb-0">Program Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text-white">Rajesh Kumar</h4>
+                                <p class="text-muted mb-0">Training Coordinator</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text-white">Priya Sharma</h4>
+                                <p class="text-muted mb-0">Research Head</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid testimonial bg-light py-5">
+        <div class="container py-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-xl-4 wow fadeInLeft" data-wow-delay="0.1s">
+                    <div class="h-100 rounded">
+                        <h4 class="text-primary">Our Feedbacks</h4>
+                        <h1 class="display-4 mb-4 text_secondary">Clients are Talking</h1>
+                        <p class="mb-4">Hear what our participants and partners have to say about their experience with Kaivalyam Foundation and the impact we've created together.</p>
+                        <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Read All Reviews <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="testimonial-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="testimonial-item bg-white rounded p-4">
+                            <div class="d-flex">
+                                <div><i class="fas fa-quote-left fa-3x text_secondary me-3"></i></div>
+                                <p class="mt-4">The exposure visit organized by Kaivalyam was truly transformative. We learned practical approaches that we could implement in our own panchayat immediately.</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="my-auto text-end">
+                                    <h5 class="text_secondary">Ramesh Patel</h5>
+                                    <p class="mb-0">Panchayat President</p>
+                                </div>
+                                <div class="bg-white rounded-circle ms-3">
+                                    <img src="img/testimonial-1.jpg" class="rounded-circle p-2" style="width: 80px; height: 80px; border: 1px solid; border-color: var(--bs-primary);" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-white rounded p-4">
+                            <div class="d-flex">
+                                <div><i class="fas fa-quote-left fa-3x text_secondary me-3"></i></div>
+                                <p class="mt-4">Excellent training program with hands-on approach. The team is highly professional and genuinely committed to making a difference in rural development.</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="my-auto text-end">
+                                    <h5 class="text_secondary">Sunita Devi</h5>
+                                    <p class="mb-0">Block Development Officer</p>
+                                </div>
+                                <div class="bg-white rounded-circle ms-3">
+                                    <img src="img/testimonial-2.jpg" class="rounded-circle p-2" style="width: 80px; height: 80px; border: 1px solid; border-color: var(--bs-primary);" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item bg-white rounded p-4">
+                            <div class="d-flex">
+                                <div><i class="fas fa-quote-left fa-3x text_secondary me-3"></i></div>
+                                <p class="mt-4">Working with Kaivalyam has been an enriching experience. Their expertise in community development and dedication to measurable outcomes is commendable.</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="my-auto text-end">
+                                    <h5 class="text_secondary">Dr. Anjali Verma</h5>
+                                    <p class="mb-0">Government Official</p>
+                                </div>
+                                <div class="bg-white rounded-circle ms-3">
+                                    <img src="img/testimonial-3.jpg" class="rounded-circle p-2" style="width: 80px; height: 80px; border: 1px solid; border-color: var(--bs-primary);" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-item">
+                        <img src="img/logo-white.png" alt="Kaivalyam Foundation" class="mb-3" style="margin-left: -70px;">
+                        <div class="d-flex align-items-center mt-3">
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-facebook-f text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-twitter text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-instagram text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in text_secondary"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Useful Links</h4>
+                        <a href="index.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Home</a>
+                        <a href="about.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="service.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Services</a>
+                        <a href="project.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Our Activity</a>
+                        <a href="contact.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Contact Info</h4>
+                        <a href="" class="mb-3"><i class="fa fa-map-marker-alt me-2"></i> 1st Floor, Orion Square, Main Sahastradhara Road, Dehradun, Uttarakhand - 248001</a>
+                        <a href="/cdn-cgi/l/email-protection#c0a9aea6af80aba1a9b6a1acb9a1ada6afb5aea4a1b4a9afaeeeafb2a7" class="mb-3"><i class="fas fa-envelope me-2"></i> <span class="__cf_email__" data-cfemail="7811161e17381319110e19140119151e170d161c190c11171656170a1f">[email&#160;protected]</span></a>
+                        <a href="tel:+919319763332" class="mb-3"><i class="fas fa-phone me-2"></i> +91-9319763332</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +91-9319763332</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function showContent(section) {
+            document.querySelectorAll('.content-section').forEach(function(el) {
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('.tab-button').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            document.getElementById(section + '-content').style.display = 'block';
+            document.getElementById('btn-' + section).querySelector('.tab-button').classList.add('active');
+        }
+
+        function playVideo(videoNum) {
+            const video = document.getElementById('video' + videoNum);
+            const overlay = document.getElementById('playOverlay' + videoNum);
+            if (video.paused) {
+                video.play();
+                overlay.style.display = 'none';
+            } else {
+                video.pause();
+                overlay.style.display = 'flex';
+            }
+        }
+
+       
+        function openVideoPopup() {
+            const overlay = document.getElementById('videoPopupOverlay');
+            const vid     = document.getElementById('popupVideo');
+            overlay.classList.add('active');
+
+          
+            setTimeout(function() {
+                const box   = overlay.querySelector('.video-popup-box');
+                const btn   = overlay.querySelector('.video-popup-close');
+                if (box && btn) {
+                    const rect = box.getBoundingClientRect();
+                    btn.style.top  = (rect.top  - 16) + 'px';
+                    btn.style.left = (rect.right - 22) + 'px';
+                }
+            }, 50);
+
+            if (vid) {
+                vid.currentTime = 0;
+                vid.play().catch(function(){});
+                updatePlayPauseIcon(true);
+            }
+        }
+
+        function closeVideoPopup() {
+            const overlay = document.getElementById('videoPopupOverlay');
+            const vid     = document.getElementById('popupVideo');
+            overlay.classList.remove('active');
+            if (vid) { vid.pause(); vid.currentTime = 0; }
+        }
+
+        function togglePopupVideo() {
+            const vid = document.getElementById('popupVideo');
+            if (!vid) return;
+            if (vid.paused) { vid.play(); updatePlayPauseIcon(true); }
+            else            { vid.pause(); updatePlayPauseIcon(false); }
+        }
+
+        function updatePlayPauseIcon(playing) {
+            document.getElementById('playIcon').style.display  = playing ? 'none'  : 'block';
+            document.getElementById('pauseIcon').style.display = playing ? 'block' : 'none';
+        }
+
+        function toggleMute() {
+            const vid = document.getElementById('popupVideo');
+            if (!vid) return;
+            vid.muted = !vid.muted;
+            document.getElementById('muteIcon').style.display   = vid.muted ? 'block' : 'none';
+            document.getElementById('unmuteIcon').style.display = vid.muted ? 'none'  : 'block';
+        }
+
+        function toggleFullscreen() {
+            const box = document.querySelector('.video-popup-body video');
+            if (!box) return;
+            if (document.fullscreenElement) document.exitFullscreen();
+            else box.requestFullscreen && box.requestFullscreen();
+        }
+
+        function seekVideo(e) {
+            const vid  = document.getElementById('popupVideo');
+            const wrap = e.currentTarget;
+            if (!vid || !wrap) return;
+            const rect  = wrap.getBoundingClientRect();
+            const ratio = (e.clientX - rect.left) / rect.width;
+            vid.currentTime = ratio * vid.duration;
+        }
+
+        function formatTime(s) {
+            if (isNaN(s)) return '0:00';
+            const m = Math.floor(s / 60);
+            const sec = Math.floor(s % 60);
+            return m + ':' + (sec < 10 ? '0' : '') + sec;
+        }
+
+      
+        document.addEventListener('DOMContentLoaded', function () {
+            const vid = document.getElementById('popupVideo');
+            if (vid) {
+                vid.addEventListener('timeupdate', function () {
+                    const pct = vid.duration ? (vid.currentTime / vid.duration) * 100 : 0;
+                    document.getElementById('vcProgressFill').style.width = pct + '%';
+                    document.getElementById('vcTime').textContent =
+                        formatTime(vid.currentTime) + ' / ' + formatTime(vid.duration);
+                });
+                vid.addEventListener('ended', function () { updatePlayPauseIcon(false); });
+                vid.addEventListener('play',  function () { updatePlayPauseIcon(true);  });
+                vid.addEventListener('pause', function () { updatePlayPauseIcon(false); });
+            }
+
+           
+            document.getElementById('videoPopupOverlay').addEventListener('click', function (e) {
+                if (e.target === this) closeVideoPopup();
+            });
+       
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeVideoPopup();
+            });
+        });
+
+       
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(function () {
+                    preloader.classList.add('hide');
+                    setTimeout(function () {
+                        preloader.style.display = 'none';
+                        openVideoPopup(); 
+                    }, 600);
+                }, 1000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            showContent('mission');
+            new WOW().init();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('.back-to-top').fadeIn('slow');
+                } else {
+                    $('.back-to-top').fadeOut('slow');
+                }
+            });
+            $('.back-to-top').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 1000, 'easeInOutExpo');
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kaivalyam - About Us</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-orange: #ffab27;
+            --primary-blue: #007bff;
+            --dark-bg: #212529;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .topbar {
+            /* background: #ffab27; */
+        }
+
+        .topbar a:hover {
+            color: var(--primary-orange) !important;
+        }
+        .navbar {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(135deg, #212529 0%, #343a40 50%, #212529 100%);
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 171, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 171, 39, 0.15) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, transparent 48%, rgba(255, 171, 39, 0.08) 50%, transparent 52%),
+                linear-gradient(-30deg, transparent 48%, rgba(255, 171, 39, 0.08) 50%, transparent 52%);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-banner h4 {
+            color: var(--primary-orange);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-banner h1 .highlight {
+            color: var(--primary-orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-banner p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+            border-radius: 2px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            display: block;
+            margin-top: 15px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .service-item {
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 171, 39, 0.3) !important;
+            border-color: rgba(255, 171, 39, 0.2);
+        }
+
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-item .rounded-circle {
+            transition: all 0.4s;
+        }
+
+        .service-item:hover .rounded-circle {
+            transform: rotateY(360deg);
+        }
+        .timeline-item {
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .award-item {
+            transition: all 0.3s;
+        }
+
+        .award-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 171, 39, 0.2) !important;
+        }
+
+        .award-item i {
+            transition: all 0.3s;
+        }
+
+        .award-item:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+        .testimonial-item {
+            transition: all 0.3s;
+            border-left: 4px solid var(--primary-orange);
+            position: relative;
+        }
+
+        .testimonial-item::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 4rem;
+            color: rgba(255, 171, 39, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-item img {
+            border: 3px solid var(--primary-orange);
+        }
+        .team-item {
+            transition: all 0.3s;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .team-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-img img {
+            transition: all 0.5s;
+        }
+
+        .team-item:hover .team-img img {
+            transform: scale(1.1);
+        }
+
+        .team-icon {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: all 0.4s;
+        }
+
+        .team-item:hover .team-icon {
+            transform: translateY(0);
+        }
+
+        .team-content {
+            background: var(--dark-bg);
+        }
+        .partner-item {
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .partner-item:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 171, 39, 0.2);
+        }
+
+        .partner-item i {
+            transition: all 0.3s;
+        }
+
+        .partner-item:hover i {
+            transform: scale(1.2);
+            color: var(--primary-orange);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            box-shadow: 0 5px 20px rgba(255, 171, 39, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: #ff9500;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 171, 39, 0.6);
+        }
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-banner p {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .hero-banner {
+                padding: 80px 0 60px;
+            }
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-orange), #ff9500);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid  bg-dark px-0 d-none d-lg-block">
+        <div class="container px-0">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-white me-4"><i class="fas fa-map-marker-alt me-2"></i>Find A Location</a>
+                        <a href="tel:+919319763332" class="text-white me-4"><i class="fas fa-phone-alt me-2"></i>+91-9319763332</a>
+                        <a href="mailto:info@kaivalyamfoundation.org" class="text-white me-0"><i class="fas fa-envelope me-2"></i>info@kaivalyamfoundation.org</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-twitter text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-3"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="#" class="btn btn-primary btn-square rounded-circle nav-fill me-0"><i class="fab fa-linkedin-in text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid sticky-top px-0">
+        <div class="position-absolute" style="left: 0; top: 0; width: 100%; height: 100%;"></div>
+        <div class="container px-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-white py-3 px-4">
+                <a href="index.html" class="navbar-brand p-0">
+                    <img src="img/logo-black.png" alt="Kaivalyam Foundation">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link active">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="project.html" class="nav-item nav-link">Our Activity</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="hero-banner">
+        <div class="container hero-content">
+            <div class="text-center">
+                <h4 class="animate__animated animate__fadeInDown">What We Stand For</h4>
+                <h1 class="animate__animated animate__fadeInUp animate__delay-1s">
+                    Empowering Lives Through <span class="highlight">Human Performance</span>
+                </h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-2s">
+                    Our values guide every decision we make and every action we take. They are the foundation of our commitment to creating lasting positive change in communities across the nation.
+                </p>
+                
+                <div class="hero-stats animate__animated animate__fadeInUp animate__delay-3s">
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Excellence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5M+</span>
+                        <span class="stat-label">Lives Impacted</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Cities Reached</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Active Programs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded h-100 p-5 text-center bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; background-color: #ffab27;">
+                            <i class="fas fa-heart fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Compassion</h4>
+                        <p class="mb-0">We approach every initiative with empathy and understanding, ensuring that our work truly serves the needs of the communities we support.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-item rounded h-100 p-5 text-center bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto mb-4" style="width: 80px; height: 80px;background-color: #ffab27;">
+                            <i class="fas fa-shield-alt fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Integrity</h4>
+                        <p class="mb-0">We maintain the highest standards of honesty, transparency, and accountability in all our operations and interactions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded h-100 p-5 text-center bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; background-color: #ffab27;">
+                            <i class="fas fa-lightbulb fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Innovation</h4>
+                        <p class="mb-0">We embrace creative solutions and modern approaches to address complex social challenges effectively.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="service-item rounded h-100 p-5 text-center bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto mb-4" style="width: 80px; height: 80px;background-color: #ffab27;">
+                            <i class="fas fa-users fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Collaboration</h4>
+                        <p class="mb-0">We believe in the power of partnerships and work closely with stakeholders to maximize our collective impact.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded h-100 p-5 text-center bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto mb-4" style="width: 80px; height: 80px;background-color: #ffab27;">
+                            <i class="fas fa-leaf fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Sustainability</h4>
+                        <p class="mb-0">We focus on creating long-term, sustainable solutions that continue to benefit communities for generations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="service-item rounded h-100 p-5 text-center bg-white shadow-sm">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mx-auto mb-4" style="width: 80px; height: 80px;background-color: #ffab27;">
+                            <i class="fas fa-trophy fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mb-3">Excellence</h4>
+                        <p class="mb-0">We strive for excellence in everything we do, continuously improving our programs and services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Journey</h4>
+                <h1 class="display-4" style="color:#ffab27;">Timeline of Growth</h1>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="timeline">
+                        <div class="row g-5">
+                            <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.1s">
+                                <div class="timeline-item rounded p-4 text-white" style="background-color: #ffab27;">
+                                    <h3 class="mb-3">2003 - Foundation</h3>
+                                    <p class="mb-0">Kaivalyam Foundation was established with a vision to transform lives through education and social development.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInRight" data-wow-delay="0.2s">
+                                <div class="timeline-item rounded p-4 bg-light">
+                                    <h3 class="mb-3 text-primary">2008 - Expansion</h3>
+                                    <p class="mb-0">Expanded our reach to 10 cities, impacting over 50,000 lives through various education and healthcare programs.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.3s">
+                                <div class="timeline-item rounded p-4 bg-light">
+                                    <h3 class="mb-3 text-primary">2015 - Recognition</h3>
+                                    <p class="mb-0">Received national recognition for our innovative approach to community development and sustainable solutions.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInRight" data-wow-delay="0.4s">
+                                <div class="timeline-item rounded p-4 text-white" style="background-color: #ffab27;">
+                                    <h3 class="mb-3">2020 - Digital Revolution</h3>
+                                    <p class="mb-0">Launched digital education platforms and online healthcare services, reaching remote communities nationwide.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.5s">
+                                <div class="timeline-item rounded p-4 text-white" style="background-color: #ffab27;">
+                                    <h3 class="mb-3">2024 - Global Impact</h3>
+                                    <p class="mb-0">Achieved milestone of impacting 5 million lives with partnerships across multiple countries.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+                                <div class="timeline-item rounded p-4 bg-light">
+                                    <h3 class="mb-3 text-primary">2025 - Future Vision</h3>
+                                    <p class="mb-0">Committed to reaching 10 million lives by 2030 through innovative programs and sustainable initiatives.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Achievements</h4>
+                <h1 class="display-4" style="color: #ffab27;">Recognition & Awards</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="award-item text-center p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-award fa-3x mb-3" style="color: #ffab27;"></i>
+                        <h4>Best NGO Award 2023</h4>
+                        <p class="mb-0">National Social Impact Excellence</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="award-item text-center p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-medal fa-3x mb-3" style="color: #ffab27;"></i>
+                        <h4>Innovation Leader</h4>
+                        <p class="mb-0">Social Innovation Forum 2022</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="award-item text-center p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-certificate fa-3x mb-3" style="color: #ffab27;"></i>
+                        <h4>CSR Excellence</h4>
+                        <p class="mb-0">Corporate Partnership Award 2021</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="award-item text-center p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-star fa-3x mb-3" style="color: #ffab27;"></i>
+                        <h4>Community Hero</h4>
+                        <p class="mb-0">National Community Service 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">What People Say</h4>
+                <h1 class="display-4" style="color: #ffab27;">Testimonials</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item rounded p-4 bg-light">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="img/customer-img-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                            <div class="ms-3">
+                                <h5 class="mb-0 text_secondary">Rahul Sharma</h5>
+                                <p class="mb-0 text-muted">Program Beneficiary</p>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Kaivalyam Foundation transformed my life through their education program. Today, I am a successful software engineer, thanks to their support."</p>
+                        <div class="text-warning mt-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="testimonial-item rounded p-4 bg-light">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="img/customer-img-2.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                            <div class="ms-3">
+                                <h5 class="mb-0 text_secondary">Priya Gupta</h5>
+                                <p class="mb-0 text-muted">Community Leader</p>
+                            </div>
+                        </div>
+                        <p class="mb-0">"The healthcare initiatives brought by Kaivalyam have made quality medical care accessible to our entire village. Truly remarkable work!"</p>
+                        <div class="text-warning mt-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="testimonial-item rounded p-4 bg-light">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="img/customer-img-3.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                            <div class="ms-3">
+                                <h5 class="mb-0 text_secondary">Amit Kumar</h5>
+                                <p class="mb-0 text-muted">Volunteer</p>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Being part of Kaivalyam's mission has been the most fulfilling experience. Their dedication to social change is truly inspiring."</p>
+                        <div class="text-warning mt-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid team py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Team</h4>
+                <h1 class="display-4 text_secondary">Meet Our Dedicated Team Members</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text_secondary">Dr. Rajesh Kumar</h4>
+                                <p class="text-white mb-0">CEO & Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text_secondary">Priya Mehta</h4>
+                                <p class="text-white mb-0">Director of Programs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text_secondary">Amit Verma</h4>
+                                <p class="text-white mb-0">Head of Operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item rounded">
+                        <div class="team-img">
+                            <img src="img/team-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            <div class="team-icon">
+                                <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fas fa-share-alt"></i></a>
+                                <div class="team-icon-share">
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-3" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square text-white rounded-circle mb-0" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content bg-dark text-center rounded-bottom p-4">
+                            <div class="team-content-inner rounded-bottom">
+                                <h4 class="text_secondary">Sneha Patel</h4>
+                                <p class="text-white mb-0">Community Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 section-title wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Trusted By</h4>
+                <h1 class="display-4 text_secondary">Our Partners & Collaborators</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="partner-item bg-light rounded p-4">
+                        <i class="fas fa-building fa-3x text_secondary"></i>
+                        <p class="mt-3 mb-0">Corporate Partners</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="partner-item bg-light rounded p-4">
+                        <i class="fas fa-university fa-3x text_secondary"></i>
+                        <p class="mt-3 mb-0">Educational Institutions</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="partner-item bg-light rounded p-4">
+                        <i class="fas fa-hospital fa-3x text_secondary"></i>
+                        <p class="mt-3 mb-0">Healthcare Organizations</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="partner-item bg-light rounded p-4">
+                        <i class="fas fa-hands-helping fa-3x text_secondary"></i>
+                        <p class="mt-3 mb-0">NGO Partners</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="partner-item bg-light rounded p-4">
+                        <i class="fas fa-landmark fa-3x text_secondary"></i>
+                        <p class="mt-3 mb-0">Government Bodies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-item">
+                        <img src="img/logo-white.png" alt="Kaivalyam Foundation" class="mb-3" style="margin-left: -70px;">
+                        <div class="d-flex align-items-center mt-3">
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-facebook-f text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-twitter text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-2" href=""><i class="fab fa-instagram text_secondary"></i></a>
+                            <a class="btn btn-light btn-md-square me-0" href=""><i class="fab fa-linkedin-in text_secondary"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Useful Links</h4>
+                        <a href="index.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Home</a>
+                        <a href="about.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                        <a href="service.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Services</a>
+                        <a href="project.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Our Activity</a>
+                        <a href="contact.html" class="mb-2"><i class="fas fa-angle-right me-2"></i> Contact</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" style="color: #ffab27;">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4" style="color: #ffab27;">Contact Info</h4>
+                        <a href="" class="mb-3"><i class="fa fa-map-marker-alt me-2"></i> 1st Floor, Orion Square, Main Sahastradhara Road, Dehradun, Uttarakhand - 248001</a>
+                        <a href="mailto:info@kaivalyamfoundation.org" class="mb-3"><i class="fas fa-envelope me-2"></i> info@kaivalyamfoundation.org</a>
+                        <a href="tel:+919319763332" class="mb-3"><i class="fas fa-phone me-2"></i> +91-9319763332</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +91-9319763332</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        new WOW().init();
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').fadeIn('slow');
+            } else {
+                $('.back-to-top').fadeOut('slow');
+            }
+        });
+        
+        $('.back-to-top').click(function () {
+            $('html, body').animate({scrollTop: 0}, 1000, 'easeInOutExpo');
+            return false;
+        });
+    </script>
+</body>
+
+</html>
