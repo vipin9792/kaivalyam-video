@@ -446,8 +446,8 @@
 }
 
 .btn.btn-primary {
-    background-color: #ffab27;
-    
+    background-color: #ffab27
+;
     color: var(--bs-white) !important;
     font-family: 'Roboto', sans-serif;
     border: none;
@@ -1227,11 +1227,9 @@
     background: var(--bs-dark) !important;
 }
 
-/* ==========================================
-   RESPONSIVE MEDIA QUERIES FOR HEADER & FOOTER
-   ========================================== */
 
-/* Desktop/PC - Logo actual size (default - no restrictions) */
+
+
 .navbar-brand img {
     width: auto;
     height: auto;
@@ -1244,73 +1242,68 @@
     max-width: 100%;
 }
 
-/* Tablet (768px - 1024px) */
+
 @media (max-width: 1024px) and (min-width: 768px) {
-    /* Header Logo */
+   
     .navbar-brand img {
         max-height: 50px;
         width: auto;
     }
     
-    /* Footer Logo */
+    
     .footer-item img {
         max-height: 80px;
         width: auto;
         margin-left: -30px !important;
     }
     
-    /* Navigation adjustments */
+    
     .navbar-nav .nav-link {
         font-size: 14px;
         padding: 8px 12px !important;
     }
     
-    /* Footer adjustments */
+  
     .footer .container {
         padding: 40px 20px;
     }
 }
 
-/* Mobile Landscape (577px - 767px) */
+
 @media (max-width: 767px) and (min-width: 577px) {
-    /* Header Logo */
+   
     .navbar-brand img {
         max-height: 45px;
         width: auto;
     }
     
-    /* Footer Logo */
+    
     .footer-item img {
         max-height: 70px;
         width: auto;
         margin-left: -20px !important;
     }
     
-    /* Footer columns */
+  
     .footer .col-md-6 {
         margin-bottom: 20px;
     }
     
-    /* Footer headings */
+  
     .footer-item h4 {
         font-size: 20px;
     }
 }
 
-/* Mobile Portrait (up to 576px) */
+
 @media (max-width: 576px) {
-    /* Header Logo */
     .navbar-brand img {
         max-height: 40px;
         width: auto;
     }
-    
-    /* Navbar padding */
     .navbar {
         padding: 10px 15px !important;
     }
-    
-    /* Footer Logo */
     .footer-item img {
         max-height: 60px;
         width: auto;
@@ -1318,73 +1311,52 @@
         display: block;
         margin-bottom: 15px;
     }
-    
-    /* Footer text alignment */
     .footer .col-md-6,
     .footer .col-lg-3,
     .footer .col-lg-4 {
         text-align: center !important;
         margin-bottom: 30px;
     }
-    
-    /* Footer social icons */
     .footer-item .d-flex {
         justify-content: center !important;
     }
-    
-    /* Footer headings */
     .footer-item h4 {
         font-size: 20px;
         margin-bottom: 20px;
     }
     
-    /* Footer links */
+   
     .footer-item a {
         font-size: 15px;
         line-height: 30px;
     }
 }
-
-/* Extra Small Mobile (up to 375px) */
 @media (max-width: 375px) {
-    /* Header Logo */
     .navbar-brand img {
         max-height: 35px;
         width: auto;
     }
-    
-    /* Footer Logo */
     .footer-item img {
         max-height: 50px;
         width: auto;
     }
-    
-    /* Footer heading */
     .footer-item h4 {
         font-size: 18px;
     }
-    
-    /* Footer links */
     .footer-item a {
         font-size: 14px;
         line-height: 28px;
     }
-    
-    /* Navbar toggler */
     .navbar-toggler {
         padding: 5px 10px;
         font-size: 18px;
     }
 }
-
-/* Topbar responsive - Hide on mobile/tablet */
 @media (max-width: 991px) {
     .topbar {
         display: none !important;
     }
 }
-
-/* Header carousel responsive */
 @media (max-width: 768px) {
     .header-carousel-item-img-1,
     .header-carousel-item-img-2,
@@ -1401,8 +1373,6 @@
         padding: 10px !important;
     }
 }
-
-/* Additional footer responsive fixes */
 @media (max-width: 767px) {
     .footer {
         padding: 40px 0 20px;
